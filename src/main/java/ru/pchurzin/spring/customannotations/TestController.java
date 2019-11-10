@@ -16,7 +16,7 @@ public class TestController {
 
     @GetMapping
     @ResponseBody
-    public String handleRequestWithParams(Map<String, String> params) {
+    public String handleRequestWithParams(SearchQuery query) {
         return HANDLE_REQUEST_WITH_PARAMS;
     }
 
