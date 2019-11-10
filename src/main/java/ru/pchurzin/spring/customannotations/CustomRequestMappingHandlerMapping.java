@@ -5,10 +5,12 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 import java.lang.reflect.Method;
 
+import static ru.pchurzin.spring.customannotations.NoRequestParamsCondition.NO_PARAMS_CONDITION;
+
 public class CustomRequestMappingHandlerMapping extends RequestMappingHandlerMapping {
 
     @Override
     protected RequestCondition<?> getCustomMethodCondition(Method method) {
-        return method.isAnnotationPresent(NoRequestParams.class) ? new NoRequestParamsCondition() : null;
+        return method.isAnnotationPresent(NoRequestParams.class) ? NO_PARAMS_CONDITION : null;
     }
 }

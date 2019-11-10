@@ -1,11 +1,24 @@
 package ru.pchurzin.spring.customannotations;
 
-import org.springframework.web.servlet.mvc.condition.RequestCondition;
+import org.springframework.web.servlet.mvc.condition.AbstractRequestCondition;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Objects;
+import java.util.Collection;
+import java.util.Collections;
 
-public class NoRequestParamsCondition implements RequestCondition<NoRequestParamsCondition> {
+public class NoRequestParamsCondition extends AbstractRequestCondition<NoRequestParamsCondition> {
+
+    public final static NoRequestParamsCondition NO_PARAMS_CONDITION = new NoRequestParamsCondition();
+
+    @Override
+    protected Collection<?> getContent() {
+        return Collections.singleton("no params");
+    }
+
+    @Override
+    protected String getToStringInfix() {
+        return "";
+    }
 
     @Override
     public NoRequestParamsCondition combine(NoRequestParamsCondition other) {
@@ -22,7 +35,6 @@ public class NoRequestParamsCondition implements RequestCondition<NoRequestParam
 
     @Override
     public int compareTo(NoRequestParamsCondition other, HttpServletRequest request) {
-        Objects.requireNonNull(other);
         return 0;
     }
 }
