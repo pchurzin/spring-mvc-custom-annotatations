@@ -10,7 +10,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 public class WebConfig extends WebMvcConfigurationSupport {
     @Override
     protected RequestMappingHandlerMapping createRequestMappingHandlerMapping() {
-        return new RequestMappingHandlerMapping();
+        return new CustomRequestMappingHandlerMapping();
     }
 
     @Bean
