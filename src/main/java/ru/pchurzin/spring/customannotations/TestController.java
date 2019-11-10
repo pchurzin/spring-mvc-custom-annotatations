@@ -22,6 +22,7 @@ public class TestController {
 
     @GetMapping
     @ResponseBody
+    @NoRequestParams
     public String handleRequestWithoutParams() {
         return HANDLE_REQUEST_WITHOUT_PARAMS;
     }
